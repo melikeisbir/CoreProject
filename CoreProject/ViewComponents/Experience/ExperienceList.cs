@@ -6,15 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreProject.ViewComponents.Portfolio
+namespace CoreProject.ViewComponents.Experience
 {
-    public class PortfolioList : ViewComponent
+    public class ExperienceList : ViewComponent
     {
-        PortfolioManager portfolioManager = new PortfolioManager(new EfPortfolioDal());
+        ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
+
         public IViewComponentResult Invoke()
         {
-            var values = portfolioManager.TGetList();
-            return View(values);
+            var values = experienceManager.TGetList();
+            return View(values);    
         }
     }
 }
