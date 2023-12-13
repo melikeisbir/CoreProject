@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(Portfolio t)
         {
-            _portfolioDal.Update(t);
+            _portfolioDal.Insert(t);
         }
 
         public void TDelete(Portfolio t)
