@@ -4,6 +4,7 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation.Results;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CoreProject.Controllers
 {
@@ -52,6 +53,36 @@ namespace CoreProject.Controllers
             var values = portfolioManager.TGetByID(id);
             portfolioManager.TDelete(values);
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult EditPortfolio(int id)
+        {
+
+            ViewBag.v1 = "Proje Listesi";
+            ViewBag.v2 = "Projelerim";
+            ViewBag.v3 = "Proje Düzenleme ";
+            var values = portfolioManager.TGetByID(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult EditPortfolio(Portfolio portfolio)
+        {
+            PortfolioValidator validations=new PortfolioValidator(); //nesne türet
+            ValidationResult results=validations.Validate(portfolio); //results olarak tanımladığın değişkeni portfolioden gelen değere göre validate et
+            if(results.IsValid)
+            {
+                portfolioManager.TUpdate(portfolio);
+                return RedirectToAction("Index");
+            }
+        
+            else
+            {
+                foreach ( var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 }
