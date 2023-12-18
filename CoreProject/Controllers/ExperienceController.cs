@@ -12,7 +12,7 @@ namespace CoreProject.Controllers
         {
 
             ViewBag.v1 = "Deneyim Listesi";
-            ViewBag.v2 = "Deneyimleri";
+            ViewBag.v2 = "Deneyimlerim";
             ViewBag.v3 = "Deneyim Listesi ";
             var values = experienceManager.TGetList();
             return View(values);
@@ -38,7 +38,7 @@ namespace CoreProject.Controllers
         public IActionResult EditExperience(int id)
         {
             ViewBag.v1 = "Deneyim Listesi";
-            ViewBag.v2 = "Deneyimleri";
+            ViewBag.v2 = "Deneyimlerim";
             ViewBag.v3 = "Deneyim Listesi ";
             var values = experienceManager.TGetByID(id);
             return View(values);
