@@ -2015,11 +2015,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
-    <Folder Include="Areas\Writer\Controllers\" />
     <Folder Include="Areas\Writer\Data\" />
     <Folder Include="Areas\Writer\Models\" />
-    <Folder Include="Areas\Writer\Views\" />
     <Folder Include="wwwroot\skydash\.git\objects\info\" />
     <Folder Include="wwwroot\skydash\.git\objects\pack\" />
     <Folder Include="wwwroot\skydash\.git\refs\tags\" />

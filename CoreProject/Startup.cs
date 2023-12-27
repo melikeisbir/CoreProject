@@ -55,6 +55,14 @@ namespace CoreProject
                     pattern: "{controller=Default}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}"
+                );
+            });
+
         }
     }
 }
