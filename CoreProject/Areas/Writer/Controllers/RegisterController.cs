@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CoreProject.Areas.Writer.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CoreProject.Areas.Writer.Controllers
 {
@@ -11,8 +12,12 @@ namespace CoreProject.Areas.Writer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(string p)
+        public IActionResult Index(UserRegisterViewModel p)
         {
+            if (ModelState.IsValid) //model geçerliyse
+            {
+              
+            }
             return View();
         }
     }
