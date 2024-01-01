@@ -25,29 +25,31 @@ namespace CoreProject.Areas.Writer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel p)
         {
-            if (ModelState.IsValid) //model geçerliyse
+            //if (ModelState.IsValid) //model geçerliyse
+            //{
+            WriterUser w = new WriterUser()
             {
-                WriterUser w = new WriterUser()
+                Name = p.UserName,
+                Surname = p.Surname,
+                Email = p.Mail,
+                UserName = p.UserName,
+                ImageUrl = p.ImageUrl
+            };
+
+            var result = await _userManager.CreateAsync(w, p.Password); //hesap oluşturma işlemi
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index", "Register");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
                 {
-                    Name = p.UserName,
-                    Surname = p.Surname,
-                    Email = p.Mail,
-                    UserName = p.UserName,
-                    ImageUrl = p.ImageUrl
-                };
-                var result = await _userManager.CreateAsync(w, p.Password); //hesap oluşturma işlemi
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Login");
-                }
-                else
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
+                    ModelState.AddModelError("", item.Description);
                 }
             }
+            //}
 
             return View(p);
         }
