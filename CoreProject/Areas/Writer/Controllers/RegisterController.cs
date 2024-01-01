@@ -20,7 +20,7 @@ namespace CoreProject.Areas.Writer.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(new UserRegisterViewModel());
         }
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel p)
@@ -42,14 +42,14 @@ namespace CoreProject.Areas.Writer.Controllers
                 }
                 else
                 {
-                    foreach( var item in result.Errors)
+                    foreach (var item in result.Errors)
                     {
                         ModelState.AddModelError("", item.Description);
                     }
                 }
             }
 
-            return View();
+            return View(p);
         }
     }
 }
