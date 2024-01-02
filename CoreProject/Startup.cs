@@ -46,7 +46,7 @@ namespace CoreProject
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication(); //istediðimiz yere eriþim
             app.UseRouting();
 
             app.UseAuthorization();
