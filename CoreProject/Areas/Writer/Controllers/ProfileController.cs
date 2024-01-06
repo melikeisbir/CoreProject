@@ -17,11 +17,15 @@ namespace CoreProject.Areas.Writer.Controllers
         {
             _userManager = userManager;
         }
-
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name); //sisteme otantike olan kullanıcnın bilgisi için
-            return View(values);
+            UserEditViewModel model = new UserEditViewModel();
+            model.Name = values.Name;
+            model.Surname = values.Surname;
+            model.PictureURL = values.ImageUrl;
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> Index(UserEditViewModel p)
@@ -41,7 +45,7 @@ namespace CoreProject.Areas.Writer.Controllers
             user.Surname = p.Surname;
             var result = await _userManager.UpdateAsync(user);
 
-            if(result.Succeeded)
+            if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Default");
             }
