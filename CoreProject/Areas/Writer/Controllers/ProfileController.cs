@@ -36,7 +36,7 @@ namespace CoreProject.Areas.Writer.Controllers
                 var resource = Directory.GetCurrentDirectory();
                 var extension = Path.GetExtension(p.Picture.FileName);
                 var imagename = Guid.NewGuid() + extension; //yeni isim oluşturulma + uzantıdan gelen değer
-                var savelocation = resource + "/wwwwroot/userimage/" + imagename; //resmin kaydedileceği lokasyon + kaynaktan gelen değer
+                var savelocation = resource + "/wwwroot/userimage/" + imagename; //resmin kaydedileceği lokasyon + kaynaktan gelen değer
                 var stream = new FileStream(savelocation, FileMode.Create); //akış + kaydetme
                 await p.Picture.CopyToAsync(stream); //streamden gelen akış değerini kopyala
                 user.ImageUrl = imagename;

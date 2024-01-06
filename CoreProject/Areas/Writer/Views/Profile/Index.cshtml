@@ -8,14 +8,15 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Profil Bilgilerini Düzenle</h4>
-            <form class="forms-sample">
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                @*  resim dosyasını kendi klasörümüzün içine kaydedebilmek için *@
                 <div class="form-group">
                     <label for="exampleInputName1">Adınız</label>
-                    <input type="text" name="@Model.Name" value="@Model.Name" class="form-control" id="exampleInputName1" placeholder="Ad">
+                    <input type="text" asp-for="Name" class="form-control" id="exampleInputName1" placeholder="Ad">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Soyadınız</label>
-                    <input type="text" name="@Model.Surname" value="@Model.Surname" class="form-control" id="exampleInputName1" placeholder="Soyad">
+                    <input type="text" asp-for="Surname" class="form-control" id="exampleInputName1" placeholder="Soyad">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifreniz</label>
@@ -27,12 +28,12 @@
                 </div>
                 <div class="form-group">
                     <label>Resim Seç</label>
-                    <input type="file" name="@Model.PictureURL" class="file-upload-default">
+                    <input type="file" asp-for="Picture">
                     @* <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Resim Yükleyin">
-                        <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
-                        </span>
+                    <input type="text" class="form-control file-upload-info" disabled placeholder="Resim Yükleyin">
+                    <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
+                    </span>
                     </div> *@
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
