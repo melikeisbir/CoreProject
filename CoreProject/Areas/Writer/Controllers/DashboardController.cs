@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CoreProject.Areas.Writer.Controllers
 {
@@ -21,6 +22,12 @@ namespace CoreProject.Areas.Writer.Controllers
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.v = values.Name + "" + values.Surname;
+
+            ////Weather API
+            //string api = "";
+            //string connection = "" + api;
+            //XDocument document = XDocument.Load(connection);
+            //ViewBag.v5 = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
 
             //statistics
             Context c = new Context();
