@@ -13,5 +13,6 @@ namespace BusinessLayer.Abstract
         void TUpdate(T t);
         List<T> TGetList();
         T TGetByID(int id); //dışarıdan t int türünde id parametresi alacak silme güncelleme işlemleri öncesinde çağrılıyor
+        List<T> TGetListbyFilter();
     }
 }
