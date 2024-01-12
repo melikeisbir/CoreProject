@@ -1,7 +1,8 @@
 ﻿@using EntityLayer.Concrete
 @model List<WriterMessage>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "SenderMessage";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
@@ -18,33 +19,33 @@
                         <tr>
                             <th>#</th>
                             <th>Konu</th>
-                            <th>Gönderen</th>
+                            <th>Alıcı</th>
                             <th>Detaylar</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-                        {@* 
-                            if (item.WriterMessageID == "Yeni Yazı")
-                            {
-                                color = "badge badge-danger";
-                            }
-                            if (item.Status == "Yeni Video")
-                            {
-                                color = "badge badge-warning";
-                            }
-                            if (item.Status == "Konferans")
-                            {
-                                color = "badge badge-info";
-                            }
-                            if (item.Status == "Workshop")
-                            {
-                                color = "badge badge-success";
-                            }
-                            if (item.Status == "Bootcamp")
-                            {
-                                color = "badge badge-primary";
-                            } *@
+                        {@*
+                        if (item.WriterMessageID == "Yeni Yazı")
+                        {
+                        color = "badge badge-danger";
+                        }
+                        if (item.Status == "Yeni Video")
+                        {
+                        color = "badge badge-warning";
+                        }
+                        if (item.Status == "Konferans")
+                        {
+                        color = "badge badge-info";
+                        }
+                        if (item.Status == "Workshop")
+                        {
+                        color = "badge badge-success";
+                        }
+                        if (item.Status == "Bootcamp")
+                        {
+                        color = "badge badge-primary";
+                        } *@
                             <tr>
                                 <th>@item.WriterMessageID</th>
                                 <td>@item.Subject</td>
