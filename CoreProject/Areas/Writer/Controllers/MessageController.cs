@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CoreProject.Areas.Writer.Controllers
@@ -59,6 +61,9 @@ namespace CoreProject.Areas.Writer.Controllers
             p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString()); //bugünün kısa tarihini al
             p.Sender = mail;
             p.SenderName = name;
+            Context c = new Context();
+            var usernamesurname = c.Users.Where(x => x.Email == p.Receiver).Select(y => y.Name + "" + y.Surname).FirstOrDefault();
+            p.ReceiverName = usernamesurname;
             writerMessageManager.TAdd(p);
             return RedirectToAction("SenderMessage", "Message");
         }
