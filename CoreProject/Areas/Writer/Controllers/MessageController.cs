@@ -3,6 +3,8 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp;
+using System;
 using System.Threading.Tasks;
 
 namespace CoreProject.Areas.Writer.Controllers
@@ -41,6 +43,24 @@ namespace CoreProject.Areas.Writer.Controllers
         {
             WriterMessage writerMessage = writerMessageManager.TGetByID(id);
             return View(writerMessage);
+        }
+        [HttpGet]
+        public IActionResult SendMessage()
+
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SendMessage(WriterMessage p)
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            string mail = values.Email;
+            string name = values.Name + " " + values.Surname;
+            p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString()); //bugünün kısa tarihini al
+            p.Sender = mail;
+            p.SenderName = name;
+            writerMessageManager.TAdd(p);
+            return RedirectToAction("SenderMessage", "Message");
         }
     }
 }
