@@ -6,9 +6,7 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-@* @{
-    string color = "";
-} *@
+
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
@@ -20,37 +18,19 @@
                             <th>#</th>
                             <th>Konu</th>
                             <th>Alıcı</th>
+                            <th>Tarih</th>
                             <th>Detaylar</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-                        {@*
-                        if (item.WriterMessageID == "Yeni Yazı")
                         {
-                        color = "badge badge-danger";
-                        }
-                        if (item.Status == "Yeni Video")
-                        {
-                        color = "badge badge-warning";
-                        }
-                        if (item.Status == "Konferans")
-                        {
-                        color = "badge badge-info";
-                        }
-                        if (item.Status == "Workshop")
-                        {
-                        color = "badge badge-success";
-                        }
-                        if (item.Status == "Bootcamp")
-                        {
-                        color = "badge badge-primary";
-                        } *@
                             <tr>
                                 <th>@item.WriterMessageID</th>
                                 <td>@item.Subject</td>
+                                <td>@item.ReceiverName</td>
                                 <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
-                                <td><a href="/Writer/Default/AnnouncementDetails/@item.WriterMessageID" class="btn btn-outline-primary">Mesajı Gör</a></td>
+                                <td><a href="/Writer/Message/ReceiverMessageDetails/@item.WriterMessageID" class="btn btn-outline-primary">Mesajı Gör</a></td>
                             </tr>
                         }
                     </tbody>
