@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace CoreProject.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")] //route attribute
     public class MessageController : Controller
     {
         private readonly UserManager<WriterUser> _userManager;
@@ -65,7 +66,7 @@ namespace CoreProject.Areas.Writer.Controllers
             var usernamesurname = c.Users.Where(x => x.Email == p.Receiver).Select(y => y.Name + "" + y.Surname).FirstOrDefault();
             p.ReceiverName = usernamesurname;
             writerMessageManager.TAdd(p);
-            return RedirectToAction("SenderMessage", "Message");
+            return RedirectToAction("SenderMessage");
         }
     }
 }

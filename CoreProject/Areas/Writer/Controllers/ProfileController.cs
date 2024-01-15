@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace CoreProject.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class ProfileController : Controller
     {
         private readonly UserManager<WriterUser> _userManager; //sisteme otantike olan kullanıcnın bilgisi için

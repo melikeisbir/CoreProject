@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace CoreProject.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class LoginController : Controller
     {
         private readonly SignInManager<WriterUser> _signInManager;
@@ -28,7 +29,7 @@ namespace CoreProject.Areas.Writer.Controllers
                 var result = await _signInManager.PasswordSignInAsync(p.Username, p.Password, true, true); //login işleminin kontrolü, true= kullanııcı adını hatırlasın
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Default");
+                    return RedirectToAction("Index", "Profile"); // ,new { area= "Writer" }
                 }
                 else
                 {
