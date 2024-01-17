@@ -1,7 +1,7 @@
 ﻿@model EntityLayer.Concrete.Service
 @{
     ViewData["Title"] = "EditService";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="card-header border-0">
@@ -9,13 +9,22 @@
 </div>
 @using (Html.BeginForm("EditService", "Service", FormMethod.Post))
 {
-    @Html.HiddenFor(x => x.ServiceID)
-    <br />
-    @Html.Label("Hizmet Başlığı")
-    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
-    <br />
-    <label>Görsel Yolu</label>
-    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
-    <br />
-    <button class="btn btn-outline-success">Güncelle</button>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description">Hizmet Güncelleme Paneli</p>
+                <form class="forms-sample" method="post">
+                    @Html.HiddenFor(x => x.ServiceID)
+                    <br />
+                    @Html.Label("Hizmet Başlığı")
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    <br />
+                    <label>Görsel Yolu</label>
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-outline-success">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
 }
