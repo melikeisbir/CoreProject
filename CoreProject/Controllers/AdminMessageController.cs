@@ -21,5 +21,10 @@ namespace CoreProject.Controllers
             var values = WriterMessageManager.GetListSenderMessage(p);
             return View(values);
         }
+        public IActionResult AdminMessageDetails(int id)
+        {
+            var values = WriterMessageManager.TGetByID(id);
+            return View(values);
+        }
     }
 }
