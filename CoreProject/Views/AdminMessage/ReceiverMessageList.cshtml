@@ -29,12 +29,13 @@
                                 <td>@item.SenderName</td>
                                 <td>@item.Subject</td>
                                 <td>@item.Date</td>
-                                <td><a href="/Contact/DeleteContact/@item.WriterMessageID" class="btn btn-outline-danger">Sil</a></td>
-                                <td><a href="/Contact/ContactDetails/@item.WriterMessageID" class="btn btn-outline-success">Mesajı Gör</a></td>
+                                <td><a href="/AdminMessage/AdminMessageDelete/@item.WriterMessageID" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/AdminMessage/AdminMessageDetails/@item.WriterMessageID" class="btn btn-outline-success">Mesajı Gör</a></td>
                             </tr>
                         }
                     </tbody>
                 </table>
+                <a asp-for="AdminMessageAdd" class="btn btn-outline-primary">Yeni Mesaj Oluştur</a>
             </div>
         </div>
     </div>
