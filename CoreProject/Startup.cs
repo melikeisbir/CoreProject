@@ -55,6 +55,7 @@ namespace CoreProject
             {
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(10); //sisteme otantike olan kullanýcý ne kadar süre otantike kalabilecek
+                options.AccessDeniedPath= "/ErrorPage/Index/"; //eriþimin reddedilme durumunda buraya gir
                 options.LoginPath = "/Writer/Login/Index/"; //baslangýcta buraya gidip otantike olmak
             });
 
