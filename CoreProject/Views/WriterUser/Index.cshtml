@@ -1,4 +1,5 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<WriterUser>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
@@ -6,3 +7,35 @@
 
 <h1>Index</h1>
 
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="getlistall" class="btn btn-outline-primary">Verileri Getir</button>
+    </div>
+</div>
+
+<h4 class="text-center">Yazar Listesi</h4>
+<div class="p-2" id="listuser">
+    buraya veriler gelecek
+</div>
+
+
+@section Scripts
+{
+    <script>
+        $("#getlistall").click(function {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/WriterUser/ListUSer/", //actiondan view türetmenden burayı çağırabileceğiz
+
+                success: function (funk) {
+                    let users = JQuery.parsJson(funk); //funktan aldığımız verileri Jsona döndür
+                    console.log(users); //usersdan gelen değeri yazdır
+                }
+            });
+        }); //butonun tetiklendiği isim: getlistall
+        //içeriğin türü: dataType
+        //let değişken tanımlamak için kullanılır
+    </script>
+}
