@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<h1>Index</h1>
-
 <div class="col-md-6">
     <div class="p-2">
         <button type="button" id="getlistall" class="btn btn-outline-primary">Verileri Getir</button>
@@ -22,15 +20,15 @@
 @section Scripts
 {
     <script>
-        $("#getlistall").click(function {
+        $("#getlistall").click(function () {
             $.ajax({
                 contentType: "application/json",
                 dataType: "json",
                 type: "Get",
-                url: "/WriterUser/ListUSer/", //actiondan view türetmenden burayı çağırabileceğiz
+                url: "/WriterUser/ListUser/", //actiondan view türetmenden burayı çağırabileceğiz
 
                 success: function (funk) {
-                    let users = JQuery.parsJson(funk); //funktan aldığımız verileri Jsona döndür
+                    let users = jQuery.parseJSON (funk); //funktan aldığımız verileri Jsona döndür
                     console.log(users); //usersdan gelen değeri yazdır
                 }
             });
@@ -39,3 +37,4 @@
         //let değişken tanımlamak için kullanılır
     </script>
 }
+<script src="~/lib/jquery/dist/jquery.js"></script>
