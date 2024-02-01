@@ -10,6 +10,8 @@
         <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
         <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
         <button type="button" id="btnid" class="btn btn-outline-warning">Id ile Getir</button>
+        <button type="button" id="btndelete" class="btn btn-outline-danger">Sil</button>
+        <button type="button" id="btnupdate" class="btn btn-outline-success">Güncelle</button>
     </div>
 </div>
 
@@ -31,8 +33,13 @@
 </div>
 <br />
 <div class="col-md-12">
-    <h5>Id'ye Göre Getirme Paneli'</h5>
+    <h5>Id'ye Göre Getirme Paneli</h5>
     <input type="text" class="form-control" id="inpid" placeholder="Id Giriniz" />
+</div>
+<br />
+<div class="col-md-12">
+    <h5>Silme Paneli</h5>
+    <input type="text" class="form-control" id="inpexpid" placeholder="Id Giriniz" />
 </div>
 
 
@@ -96,6 +103,19 @@
                     console.log(result);
                     let htmlstr = `<table class=table table-hover> <tr> <th> Deneyim ID </th> <td> ${result.ExperienceID} </td> </tr> <tr> <th> Deneyim Başlığı </th> <td> ${result.Name} </td> </tr> </table`
                     $("#listbyidexperience").html(htmlstr); //tabloyu çağırma
+                }
+            });
+        });
+
+        $("#btndelete").click(x => {
+            let id = $("#inpexpid").val();
+            $.ajax({
+                url: "/Experience2/DeleteExperience/" + id,
+                type: "post",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (funk3) {
+                    loadData();
                 }
             });
         });
