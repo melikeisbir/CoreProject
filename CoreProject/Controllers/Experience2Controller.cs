@@ -25,9 +25,9 @@ namespace CoreProject.Controllers
             var values = JsonConvert.SerializeObject(p);
             return Json(values);
         }
-        public IActionResult GetByID(int id)// idye göre getir
+        public IActionResult GetById(int ExperienceID)// idye göre getir
         {
-            var v = experienceManager.TGetByID(id);
+            var v = experienceManager.TGetByID(ExperienceID);
             var values = JsonConvert.SerializeObject(v);
             return Json(values);
         }

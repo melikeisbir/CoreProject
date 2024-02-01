@@ -79,8 +79,18 @@
         //id'ye göre getirme
         $("#btnid").click(x => {
             let id = $("#inpid").val();
-            console.log(id);
-        })
+
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "get",
+                url: "/Experience2/GetById/",
+                data: { ExperienceID: id },
+                success: function (funk2) {
+                    console.log(funk2);
+                }
+            });
+        });
     </script>
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
