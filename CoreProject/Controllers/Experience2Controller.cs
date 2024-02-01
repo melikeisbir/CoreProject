@@ -3,28 +3,27 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace CoreProject.Controllers
 {
-    public class WriterUserController : Controller
+    public class Experience2Controller : Controller
     {
-        WriterUserManager userManager = new WriterUserManager(new EfWriterUserDal());
+        ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult ListUser()
+        public IActionResult ListExperience()
         {
-            var values = JsonConvert.SerializeObject(userManager.TGetList());
+            var values = JsonConvert.SerializeObject(experienceManager.TGetList());
             return Json(values);
         }
         [HttpPost]
-        public IActionResult AddUser(WriterUser p)
+        public IActionResult AddExperience(Experience p)
         {
-            userManager.TAdd(p);
+            experienceManager.TAdd(p);
             var values = JsonConvert.SerializeObject(p);
-            return Json(values);    
+            return Json(values);
         }
     }
 }

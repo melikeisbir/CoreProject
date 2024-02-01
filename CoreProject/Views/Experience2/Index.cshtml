@@ -1,5 +1,5 @@
 ﻿@using EntityLayer.Concrete
-@model List<WriterUser>
+@model List<Experience>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
@@ -8,20 +8,20 @@
 <div class="col-md-6">
     <div class="p-2">
         <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
-        <button type="button" id="btnadduser" class="btn btn-outline-info">Kaydet</button>
+        <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
     </div>
 </div>
 
-<h4 class="text-center">Yazar Listesi</h4>
+<h4 class="text-center">Deneyim Listesi</h4>
 <div class="p-2" id="listuser">
     buraya veriler gelecek
 </div>
 
 <br />
 <div class="col-md-12">
-    <input type="text" class="form-control" id="inpname" placeholder="Ad"/>
+    <input type="text" class="form-control" id="inpname" placeholder="Ad" />
     <br />
-    <input type="text" class="form-control" id="inpsurname" placeholder="Soyad"/>
+    <input type="text" class="form-control" id="inpsurname" placeholder="Soyad" />
     <br />
     <input type="text" class="form-control" id="inpusername" placeholder="Kullanıcı Adınız" />
     <br />
@@ -37,11 +37,11 @@
                 contentType: "application/json",
                 dataType: "json",
                 type: "Get",
-                url: "/WriterUser/ListUser/", //actiondan view türetmenden burayı çağırabileceğiz
+                url: "/Experience2/ListExperience/", //actiondan view türetmenden burayı çağırabileceğiz
 
                 success: function (funk) {
-                    let users = jQuery.parseJSON (funk); //funktan aldığımız verileri Jsona döndür
-                    console.log(users); //usersdan gelen değeri yazdır
+                    let values = jQuery.parseJSON(funk); //funktan aldığımız verileri Jsona döndür
+                    console.log(values); //usersdan gelen değeri yazdır
                 }
             });
         }); //butonun tetiklendiği isim: getlistall
