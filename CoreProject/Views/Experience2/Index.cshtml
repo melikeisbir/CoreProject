@@ -18,6 +18,11 @@
 
 <br />
 
+<div class="p-2" id="listbyidexperience">
+</div>
+
+<br />
+
 <div class="col-md-12">
     <h5>Ekleme Paneli</h5>
     <input type="text" class="form-control" id="inpname" placeholder="Başlık" />
@@ -87,7 +92,10 @@
                 url: "/Experience2/GetById/",
                 data: { ExperienceID: id },
                 success: function (funk2) {
-                    console.log(funk2);
+                    let result = jQuery.parseJSON(funk2);
+                    console.log(result);
+                    let htmlstr = `<table class=table table-hover> <tr> <th> Deneyim ID </th> <td> ${result.ExperienceID} </td> </tr> <tr> <th> Deneyim Başlığı </th> <td> ${result.Name} </td> </tr> </table`
+                    $("#listbyidexperience").html(htmlstr); //tabloyu çağırma
                 }
             });
         });
