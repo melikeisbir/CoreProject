@@ -13,24 +13,20 @@
 </div>
 
 <div class="p-2" id="listexperience">
-
 </div>
 
 <br />
 <div class="col-md-12">
-    <input type="text" class="form-control" id="inpname" placeholder="Ad" />
+    <input type="text" class="form-control" id="inpname" placeholder="Başlık" />
     <br />
-    <input type="text" class="form-control" id="inpsurname" placeholder="Soyad" />
-    <br />
-    <input type="text" class="form-control" id="inpusername" placeholder="Kullanıcı Adınız" />
-    <br />
-    <input type="text" class="form-control" id="inpmail" placeholder="Mail Adresi" />
+    <input type="text" class="form-control" id="inpdate" placeholder="Tarih" />
 </div>
 
 
 @section Scripts
 {
     <script>
+        //listeleme işlemi
         $("#btngetlistall").click(function () {
             $.ajax({
                 contentType: "application/json",
@@ -53,6 +49,24 @@
         }); //butonun tetiklendiği isim: getlistall
         //içeriğin türü: dataType
         //let değişken tanımlamak için kullanılır
+
+
+        //ekleme işlemi
+        $("#btnadd").click(function () {
+            let values = {
+                Name: $("#inpname").val(),
+                Date: $("#inpdate").val(),
+            };
+            $.ajax({
+                type: "Post",
+                url: "/Experience2/AddExperience/",
+                data: values,
+                success: function (funk1) {
+                    let result = jQuery.parseJSON(funk1);
+                    alert(result.Name + "Başarılı bir şekilde eklendi");
+                }
+            });
+        });
     </script>
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
