@@ -9,6 +9,7 @@
     <div class="p-2">
         <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
         <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
+        <button type="button" id="btnid" class="btn btn-outline-warning">Id ile Getir</button>
     </div>
 </div>
 
@@ -16,10 +17,17 @@
 </div>
 
 <br />
+
 <div class="col-md-12">
+    <h5>Ekleme Paneli</h5>
     <input type="text" class="form-control" id="inpname" placeholder="Başlık" />
     <br />
     <input type="text" class="form-control" id="inpdate" placeholder="Tarih" />
+</div>
+<br />
+<div class="col-md-12">
+    <h5>Id'ye Göre Getirme Paneli'</h5>
+    <input type="text" class="form-control" id="inpid" placeholder="Id Giriniz" />
 </div>
 
 
@@ -67,6 +75,12 @@
                 }
             });
         });
+
+        //id'ye göre getirme
+        $("#btnid").click(x => {
+            let id = $("#inpid").val();
+            console.log(id);
+        })
     </script>
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
