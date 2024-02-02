@@ -157,7 +157,7 @@
                 <div class="content-wrapper">
                     @RenderBody()
                 </div>
-                @await RenderSectionAsync("Scripts")
+                @await RenderSectionAsync("Scripts", required: false) @* bütün viewlar için gerekli değil *@
                 <!-- content-wrapper ends -->
                 <!-- partial:../../partials/_footer.html -->
                 <footer class="footer">
