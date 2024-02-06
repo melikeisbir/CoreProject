@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoreProject.Controllers
 {
-    [Authorize(Roles = "Admin")] //bu sayafaya sadece rolü admin olan kişiler erişebilir
+    [Authorize(Roles = "admin")] //bu sayafaya sadece rolü admin olan kişiler erişebilir
     public class ExperienceController : Controller
     {
         ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
