@@ -11,7 +11,7 @@
             </div>
             <div class="preview-item-content">
                 <p class="preview-subject ellipsis mb-1">@item.SenderName bir mesaj gönderdi.</p>
-                <p class="text-muted mb-0">@item.Date </p>
+                <p class="text-muted mb-0">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</p>
             </div>
         </a>
     }
